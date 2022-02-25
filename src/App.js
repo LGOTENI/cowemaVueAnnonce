@@ -6,8 +6,9 @@ import Formulaire from "./components/formulaire";
 
 function App() {
   return (
-    <div className="mx-14 my-14">
-        <Formulaire />
+  <div className="mx-14 mb-8 h-[1030px] ">
+      <HeaderAnnonce />
+      <Formulaire />
     </div>
   );
 }
