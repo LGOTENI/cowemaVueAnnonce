@@ -12,7 +12,10 @@ import {
 
 export default function Formulaire() {
   const [verification, setVerification] = useState(false);
-  const [image, setImage] = useState();
+  const [image, setImage] = useState("");
+  const [firstButton, setFirstButton] = useState(false);
+  const [secondButton, setSecondButton] = useState(false);
+  const [thirdButton, setThirdButton] = useState(false);
 
   const monImage = (e) => {
     if (e.target.value) {
@@ -27,42 +30,77 @@ export default function Formulaire() {
         <div className="">
           {/* Mes inputs */}
           <div className="mx-4">
-            <div className=" mt-6">
-              <div className="border-4 border-dashed h-64">
-                <input type="file" />
+            <div className=" mt-6 mb-1">
+              <div
+                className={`${
+                  verification ? "h-64" : "border-4 border-dashed h-64"
+                }`}
+              >
+                {verification ? (
+                  <img
+                    src="https://cache.magicmaman.com/data/photo/w1000_ci/5y/petite-fille-qui-sourit2.jpg "
+                    alt=""
+                    className="cw-full h-full object-center object-cover lg:w-full lg:h-full"
+                  />
+                ) : (
+                  <input type="file" onChange={(e) => monImage(e)} />
+                )}
               </div>
             </div>
             <div className="grid grid-cols-4 border-4 border-dashed h-40 border-t-0">
-              <div className="col-span-1 border-r-4 border-dashed"></div>
-              <div className="col-span-1 border-r-4 border-dashed"></div>
-              <div className="col-span-1 border-r-4 border-dashed"></div>
-              <div className="col-span-1"></div>
+              <div className="col-span-1 border-r-4 border-dashed">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMNENSPGmMWl5K75XM5-7JfgF0H5fNXq8nQw&usqp=CAU"
+                  alt=""
+                  className="cw-full h-full object-center object-cover lg:w-full lg:h-full"
+                />
+              </div>
+              <div className="col-span-1 border-r-4 border-dashed">
+                <img
+                  src="https://us.123rf.com/450wm/karelnoppe/karelnoppe1705/karelnoppe170500034/79224056-gros-plan-d-un-visage-de-studio-de-jeune-fille-africaine-charmante-avec-une-coiffure-tress%C3%A9e-.jpg"
+                  alt=""
+                  className="cw-full h-full object-center object-cover lg:w-full lg:h-full"
+                />
+              </div>
+              <div className="col-span-1 border-r-4 border-dashed">
+                <img
+                  src="https://i.pinimg.com/236x/e2/21/b6/e221b6befff1547108677eb1d049a431.jpg"
+                  alt=""
+                  className="cw-full h-full object-center object-cover lg:w-full lg:h-full"
+                />
+              </div>
+              <div className="col-span-1">
+                <img
+                  src="https://assets.laboutiqueofficielle.com/w_210,q_auto,f_auto/w_30,g_north_east,x_5,y_5,o_100,l_image:upload:v1627646526:Desc:Watermark:3adidas_orginal/media/products/2021/01/18/adidas_247735_FZ2247_20210122T133427_01.jpg"
+                  alt=""
+                  className="cw-full h-full object-center object-cover lg:w-full lg:h-full"
+                />
+              </div>
             </div>
             <div className="mt-8">
               <label
                 htmlFor="titre"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 Le titre de l'annonce *
               </label>
-              <div class="relative mt-1">
-                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                  <FontAwesomeIcon icon={faHeading} id="titre"/>
+              <div className="relative mt-1">
+                <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                  <FontAwesomeIcon icon={faHeading} id="titre" />
                 </div>
                 <Input type="text" />
               </div>
             </div>
             <div className="mt-6">
               <label
-            
                 htmlFor="categorie"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
               >
                 Selectionner la catégorie *
               </label>
               <select
                 id="categorie"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 focus:border-2 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
                 <option>Telephone</option>
                 <option>Habit</option>
@@ -73,13 +111,13 @@ export default function Formulaire() {
             <div className="mt-6">
               <label
                 htmlFor="ville"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
               >
                 Selectionner la ville *
               </label>
               <select
                 id="ville"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 focus:border-2 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
                 <option>Brazzaville</option>
                 <option>Oyo</option>
@@ -89,27 +127,31 @@ export default function Formulaire() {
             </div>
             <div className="mt-6">
               <label
-                for="reference"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                htmlFor="reference"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 La reference (facultatif)
               </label>
-              <div class="relative mt-1">
-                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+              <div className="relative mt-1">
+                <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                   <FontAwesomeIcon icon={faMapLocation} />
                 </div>
-                <Input placeholder="Ex: A coté du marché total" id="reference" name="reference" />
+                <Input
+                  placeholder="Ex: A coté du marché total"
+                  id="reference"
+                  name="reference"
+                />
               </div>
             </div>
             <div className="mt-6">
               <label
-                for="idPrix"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                htmlFor="idPrix"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 Le prix *
               </label>
-              <div class="relative mt-1">
-                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+              <div className="relative mt-1">
+                <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                   <FontAwesomeIcon icon={faUsd} />
                 </div>
                 <Input id="idPrix" />
@@ -117,8 +159,8 @@ export default function Formulaire() {
             </div>
             <div className="mt-6">
               <label
-                for="idDescription"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                htmlFor="idDescription"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 La description du poduit
               </label>
@@ -133,31 +175,45 @@ export default function Formulaire() {
             </div>
             <div className="mt-6">
               <label
-                for="idDescription"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                htmlFor="idDescription"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 Comment peut-on vous contactez?
               </label>
               <div className="grid grid-cols-3 ">
                 <button
+                  onClick={() => setFirstButton(!firstButton)}
                   type="button"
-                  class="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
+                  className={`${
+                    firstButton
+                      ? "ring-4 text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
+                      : "text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
+                  }`}
                 >
                   Whatsapp
                 </button>
                 <button
+                  onClick={() => setSecondButton(!secondButton)}
                   type="button"
-                  class="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
+                  className={`${
+                    secondButton
+                      ? "ring-4 text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
+                      : "text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
+                  }`}
                 >
                   <FontAwesomeIcon icon={faPhone} className="mr-2" />
                   Telephone
                 </button>
                 <button
+                  onClick={() => setThirdButton(!thirdButton)}
                   type="button"
-                  class="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
+                  className={`${
+                    thirdButton
+                      ? "ring-4 text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
+                      : "text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
+                  }`}
                 >
                   <FontAwesomeIcon icon={faSms} className="mr-2" />
-
                   SMS
                 </button>
               </div>
@@ -166,13 +222,13 @@ export default function Formulaire() {
               <div className="flex flex-wrap justify-between">
                 <button
                   type="button"
-                  class="text-white bg-blue-400 hover:bg-blue-500 font-medium rounded-sm text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#1da1f2]/55 mr-2 mb-2"
+                  className="text-white bg-blue-400 hover:bg-blue-500 font-medium rounded-sm text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#1da1f2]/55 mr-2 mb-2"
                 >
                   Retour
                 </button>
                 <button
                   type="button"
-                  class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 font-medium rounded-sm text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#1da1f2]/55 mr-2 mb-2"
+                  className="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 font-medium rounded-sm text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#1da1f2]/55 mr-2 mb-2"
                 >
                   <FontAwesomeIcon icon={faCloudDownload} className="mr-2" />
                   Envoyer mon annonce
