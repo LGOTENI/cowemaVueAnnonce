@@ -1,16 +1,16 @@
 import React from "react";
 import Input from "./input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPhone,
-  faSms,
-  faCloudDownload,
-  faMapMarker,
-  faMapLocation,
-  faUsd,
-  faListSquares,
-  faHeading,
-} from "@fortawesome/free-solid-svg-icons";
+  import {
+    faPhone,
+    faSms,
+    faCloudDownload,
+    faMapMarker,
+    faMapLocation,
+    faUsd,
+    faListSquares,
+    faHeading,
+  } from "@fortawesome/free-solid-svg-icons";
 
 export default function Formulaire() {
   const monBoutton = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faCloudDownload } from "@fortawesome/free-solid-svg-icons";
+import { faCircleArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const HeaderAnnonce = () => {
   return (
@@ -8,10 +8,13 @@ const HeaderAnnonce = () => {
       <div class="container flex flex-wrap justify-between items-center mx-auto">
         <a href="#!" class="flex" title="res">
           <span class="self-center font-semibold whitespace-nowrap dark:text-white text-3xl">
-            <FontAwesomeIcon icon={faArrowLeft} />
+            <FontAwesomeIcon icon={faCircleArrowLeft} />
           </span>
         </a>
         <div className="flex text-2xl font-black">Publier votre annonce</div>
+        <div>
+          
+        </div>
       </div>
     </nav>
   );

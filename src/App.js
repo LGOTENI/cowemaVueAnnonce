@@ -1,13 +1,11 @@
 import React from "react";
-import HeaderAnnonce from "./components/headerAnnonce";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import Formulaire from "./components/formulaire";
+import HeaderAnnonce from "./components/HeaderAnnonce";
+import Formulaire from "./components/Formulaire";
 
 function App() {
   return (
-  <div className="mx-14 mb-8 h-[1030px] ">
-      <HeaderAnnonce />
+  <div className="w-[600px] mb-8 h-[1200px] mx-auto ">
+      {/* <HeaderAnnonce /> */}
       <Formulaire />
     </div>
   );

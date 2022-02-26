@@ -1,179 +1,183 @@
-import React, {useState} from "react";
-import Input from "./input";
+import React, { useState } from "react";
+import Input from "./Input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPhone,
+  faMapLocation,
   faSms,
   faCloudDownload,
-  faMapMarker,
-  faMapLocation,
   faUsd,
-  faListSquares,
   faHeading,
-  faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Formulaire() {
-  
-  const [verification, setVerification]= useState(false)
-  const [image, setImage]= useState()
+  const [verification, setVerification] = useState(false);
+  const [image, setImage] = useState();
 
-  const monImage= (e) => {
-    if(e.target.value){
-      setVerification(true)
-      setImage(e.target.value)
+  const monImage = (e) => {
+    if (e.target.value) {
+      setVerification(true);
+      setImage(e.target.value);
     }
-
-  }
+  };
 
   return (
-    <div className="grid grid-cols-6 col-span-2 box border-solid shadow-xl rounded-md bg-blue-500 mt-4 mb-4">
-      <div className="col-span-2 bg-green-400 w-full box border-solid shadow-xl rounded-sm rounded-r-none">
-        {/* <div className="m-2">
-          <div className="grid grid-cols-12">
-            <div class=" col-span-1 font-semibold whitespace-nowrap dark:text-white">
-            </div>
-            <div className="col-span-11 text-center text-xl font-bold">
-            </div>
-          </div>
-          <div>
-            <span className="font-light">
-              Nous prenons un plasir à vous servir
-            </span>
-          </div>
-        </div> */}
-      </div>
-
-      <div className="col-span-4 bg-white box border-solid shadow-xl rounded-sm rounded-l-none ">
-        <div className="m-2">
-          <div className="text-center text-xl font-extrabold mb-4 ">
-            Veillez remplir ce formuaire s'il vous plait.
-          </div>
+    <div className="box border-solid shadow-xl rounded-xl bg-blue-500 mt-4 mb-4">
+      <div className=" bg-white box border-solid shadow-xl rounded-md py-4 ">
+        <div className="">
           {/* Mes inputs */}
-          <div className="mx-14 mt-8">
-            <div className="mb-4">
-              <div className="grid grid-cols-5 h-72 border-dashed border-4 gap-1">
-                <div className="col-span-2 w-full h-full border-r-4 border-dashed text center">
-                  {verification ? (
-                    <img src={image} alt="" srcset="" />
-                  ) : (
-                    <input
-                      type="file"
-                      className="h-full w-full mt-32"
-                      onChange={(e) => monImage(e)}
-                    />
-                  )}
+          <div className="mx-4">
+            <div className=" mt-6">
+              <div className="border-4 border-dashed h-64">
+                <input type="file" />
+              </div>
+            </div>
+            <div className="grid grid-cols-4 border-4 border-dashed h-40 border-t-0">
+              <div className="col-span-1 border-r-4 border-dashed"></div>
+              <div className="col-span-1 border-r-4 border-dashed"></div>
+              <div className="col-span-1 border-r-4 border-dashed"></div>
+              <div className="col-span-1"></div>
+            </div>
+            <div className="mt-8">
+              <label
+                htmlFor="titre"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Le titre de l'annonce *
+              </label>
+              <div class="relative mt-1">
+                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                  <FontAwesomeIcon icon={faHeading} id="titre"/>
                 </div>
-                <div className="col-span-3">
-                  <div className="grid grid-cols-2 h-full gap-1">
-                    <div className="col-span-1 border-r-4 border-dashed">
-                      02
-                    </div>
-                    <div className="col-span-1 ">03</div>
-                    <div className="col-span-1 border-r-4 border-t-4 border-dashed">
-                      04
-                    </div>
-                    <div className="col-span-1 border-t-4 border-dashed">
-                      05
-                    </div>
-                  </div>
-                </div>
+                <Input type="text" />
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className=" col-span-1 ">
-                <label htmlFor="titre" className=" text-xl">
-                  Titre de l'annonce
-                </label>
-                <Input type="text" placeholder="Le titre de votre annonce" />
-              </div>
-              <div className=" col-span-1 ">
-                <label htmlFor="prix" className="text-xl">
-                  Prix de l'annonce
-                </label>
-                <Input type="number" placeholder="Le prix de votre annonce" />
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className=" col-span-1 ">
-                <label htmlFor="titre" className=" text-xl">
-                  Votre emplacement
-                </label>
-                <select
-                  name="emplacement"
-                  id="emplacement"
-                  className="flex w-full text-sm pl-2 border-black border rounded-md mx-auto py-[18px] mb-2 hover:border-green-500 hover:border-l hover:border-r hover:border-b active:bg-green-100 focus:outline-none focus:ring focus:ring-green-300 focus:border-green-300pb-4 mt-2 font-bold
-                    "
-                >
-                  <option value="Dolisie">Dolisie</option>
-                  <option value="Oyo">Oyo</option>
-                  <option value="Brazzaville">Brazzaville</option>
-                  <option value="Mindouli">Mindouli</option>
-                  <option value="Pointe Noire">Pointe Noire</option>
-                  <option value="Ouesso">Ouesso</option>
-                  <option value="Nkayi">Nkayi</option>
-                </select>
-              </div>
-              <div className=" col-span-1 ">
-                <label htmlFor="prix" className="text-xl">
-                  Reference sur votre emplacement
-                </label>
-                <Input placeholder="Ex: En face de la station Puma de Ndzoko" />
-              </div>
-            </div>
-            <div>
-              <label htmlFor="categorie" className=" text-xl">
-                La categorie du produit
+            <div className="mt-6">
+              <label
+            
+                htmlFor="categorie"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+              >
+                Selectionner la catégorie *
               </label>
               <select
-                name="categorie"
-                id="emplacement"
-                className="flex w-full text-xl pl-2 border-black border rounded-md mx-auto py-3 mb-2 hover:border-green-500 hover:border-l hover:border-r hover:border-b active:bg-green-100 focus:outline-none focus:ring focus:ring-green-300 focus:border-green-300pb-4 mt-2 font-light
-                    "
+                id="categorie"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
-                <option value="Dolisie">Telephone</option>
-                <option value="Oyo">Ordinateur</option>
-                <option value="Brazzaville">Montre</option>
-                <option value="Mindouli">Electromenager</option>
-                <option value="Pointe Noire">Habit Noire</option>
-                <option value="Ouesso">Ouesso</option>
-                <option value="Nkayi">Nkayi</option>
+                <option>Telephone</option>
+                <option>Habit</option>
+                <option>Ordinateur</option>
+                <option>Chaussure</option>
               </select>
             </div>
-            <div>
-              <label htmlFor="idDescription" className="text-xl">
-                Description
+            <div className="mt-6">
+              <label
+                htmlFor="ville"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+              >
+                Selectionner la ville *
+              </label>
+              <select
+                id="ville"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+                <option>Brazzaville</option>
+                <option>Oyo</option>
+                <option>Pointe noire</option>
+                <option>Nkayi</option>
+              </select>
+            </div>
+            <div className="mt-6">
+              <label
+                for="reference"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                La reference (facultatif)
+              </label>
+              <div class="relative mt-1">
+                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                  <FontAwesomeIcon icon={faMapLocation} />
+                </div>
+                <Input placeholder="Ex: A coté du marché total" id="reference" name="reference" />
+              </div>
+            </div>
+            <div className="mt-6">
+              <label
+                for="idPrix"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Le prix *
+              </label>
+              <div class="relative mt-1">
+                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                  <FontAwesomeIcon icon={faUsd} />
+                </div>
+                <Input id="idPrix" />
+              </div>
+            </div>
+            <div className="mt-6">
+              <label
+                for="idDescription"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                La description du poduit
               </label>
               <textarea
                 name="description"
                 id="idDescription"
-                placeholder="Ex: Je vends un telephone de marque LG avec une memoire vive de 4Go de 32Go de memoire morte"
-                className="w-full text-lg pl-2 border-black border rounded-md mx-auto py-3 mb-2 hover:border-green-500 hover:border-l hover:border-r hover:border-b active:bg-green-100 focus:outline-none focus:ring focus:ring-green-300 focus:border-green-300 font-light pb-4 mt-2 "
+                cols="30"
+                rows="10"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Ex: Mon telephone est de marque nokia avec 4Go de Ram et 32Go de memoir morte"
               ></textarea>
             </div>
-            <div className="mb-2">
-              <div className="text-xl mb-2">Comment me contacter?</div>
-              <div className="flex flex-wrap justify-between w-96   ">
-                <button className=" text-sm bg-gray-200 px-2 rounded-md mb-2 hover:bg-green-200 hover:text-black text-black py-2">
+            <div className="mt-6">
+              <label
+                for="idDescription"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Comment peut-on vous contactez?
+              </label>
+              <div className="grid grid-cols-3 ">
+                <button
+                  type="button"
+                  class="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
+                >
                   Whatsapp
                 </button>
-                <button className=" text-sm bg-gray-200 px-2 rounded-md mb-2 hover:bg-green-200 hover:text-black text-black py-2">
+                <button
+                  type="button"
+                  class="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
+                >
                   <FontAwesomeIcon icon={faPhone} className="mr-2" />
                   Telephone
                 </button>
-                <button className=" text-sm  bg-gray-200 pr-2 w-20 rounded-md mb-2 hover:bg-green-200 hover:text-black text-black py-2">
+                <button
+                  type="button"
+                  class="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"
+                >
                   <FontAwesomeIcon icon={faSms} className="mr-2" />
-                  Sms
+
+                  SMS
                 </button>
               </div>
             </div>
-            <div className="">
-              <button
-                type="submit"
-                className="container text-sm bg-green-500 pl-2  border-t border-l border-r rounded-md mx-auto py-3 hover:bg-green-600 hover:text-black text-white w-60"
-              >
-                <FontAwesomeIcon icon={faCloudDownload} /> PUBLIER MON ANNONCE
-              </button>
+            <div className="mt-6">
+              <div className="flex flex-wrap justify-between">
+                <button
+                  type="button"
+                  class="text-white bg-blue-400 hover:bg-blue-500 font-medium rounded-sm text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#1da1f2]/55 mr-2 mb-2"
+                >
+                  Retour
+                </button>
+                <button
+                  type="button"
+                  class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 font-medium rounded-sm text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#1da1f2]/55 mr-2 mb-2"
+                >
+                  <FontAwesomeIcon icon={faCloudDownload} className="mr-2" />
+                  Envoyer mon annonce
+                </button>
+              </div>
             </div>
           </div>
         </div>
