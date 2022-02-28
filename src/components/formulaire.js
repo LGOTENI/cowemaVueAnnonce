@@ -79,7 +79,7 @@ export default function Formulaire() {
             </div>
             <div className="mt-8">
               <label
-                htmlFor="titre"
+                htmlFor="idTitre"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 Le titre de l'annonce *
@@ -88,7 +88,7 @@ export default function Formulaire() {
                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                   <FontAwesomeIcon icon={faHeading} id="titre" />
                 </div>
-                <Input type="text" />
+                <Input type="text" id="idTitre" />
               </div>
             </div>
             <div className="mt-6">
@@ -175,7 +175,6 @@ export default function Formulaire() {
             </div>
             <div className="mt-6">
               <label
-                htmlFor="idDescription"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 Comment peut-on vous contactez?
