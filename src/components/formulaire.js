@@ -28,6 +28,9 @@ export default function Formulaire() {
     <div className="box border-solid shadow-xl rounded-xl bg-blue-500 mt-4 mb-4">
       <div className=" bg-white box border-solid shadow-xl rounded-md py-4 ">
         <div className="">
+            <h1 className="mx-4 text-center font-semibold animate-bounce">
+              Veillez remplir le formulaire s'il vout plait.
+            </h1>
           {/* Mes inputs */}
           <div className="mx-4">
             <div className=" mt-6 mb-1">
@@ -154,7 +157,7 @@ export default function Formulaire() {
                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                   <FontAwesomeIcon icon={faUsd} />
                 </div>
-                <Input id="idPrix" />
+                <Input id="idPrix" type="number" />
               </div>
             </div>
             <div className="mt-6">
@@ -174,9 +177,7 @@ export default function Formulaire() {
               ></textarea>
             </div>
             <div className="mt-6">
-              <label
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >
+              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                 Comment peut-on vous contactez?
               </label>
               <div className="grid grid-cols-3 ">
